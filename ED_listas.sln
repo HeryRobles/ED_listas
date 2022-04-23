@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListasSimplementeLigadas", "ListasSimplementeLigadas\ListasSimplementeLigadas.csproj", "{97CCF417-F12D-448F-80EC-8F7B51675A2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListasDoblementeLigadas", "ListasDoblementeLigadas\ListasDoblementeLigadas.csproj", "{DBF9B5A2-5109-403F-9ADD-33DBF1F4C5FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{97CCF417-F12D-448F-80EC-8F7B51675A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97CCF417-F12D-448F-80EC-8F7B51675A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97CCF417-F12D-448F-80EC-8F7B51675A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBF9B5A2-5109-403F-9ADD-33DBF1F4C5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF9B5A2-5109-403F-9ADD-33DBF1F4C5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF9B5A2-5109-403F-9ADD-33DBF1F4C5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF9B5A2-5109-403F-9ADD-33DBF1F4C5FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
