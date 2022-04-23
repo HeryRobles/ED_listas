@@ -10,3 +10,5 @@ Console.WriteLine(listas.RecorrerLista());
 Console.WriteLine("Buscando Nodo");
 Nodo nodoDos = listas.Buscar("Dos");
 Console.WriteLine(nodoDos.Valor);
+Console.WriteLine();
+
