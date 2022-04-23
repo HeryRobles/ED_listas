@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace ListasDoblementeLigadas
 {
-    internal class Nodo
+    public class Nodo
     {
+        public string Valor { get; set; }
+
+        public Nodo EnlaceAnterior { get; set; }
+
+        public Nodo EnlaceSiguiente { get; set; }
+
+        public Nodo(string valor = "", Nodo nodoAnt = null, Nodo nodoSig = null)
+        {
+            Valor = valor;
+            EnlaceAnterior = nodoAnt;
+            EnlaceSiguiente = nodoSig;
+        }
     }
 }
