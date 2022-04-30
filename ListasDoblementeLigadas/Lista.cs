@@ -115,7 +115,7 @@ namespace ListasDoblementeLigadas
                 {
                     Nodo nodoAnterior = BuscarAnterior(dato);
                     nodoAnterior.EnlaceSiguiente = nodoActual.EnlaceSiguiente;
-                    nodoActual.EnlaceSiguiente = null;
+                    nodoActual.EnlaceSiguiente = nodoAnterior;
                 }
             }
         }
