@@ -46,6 +46,7 @@ namespace ListasSimplesCirculares
             return datosLista;
         }
 
+
         public void AgregarNodo(string dato)
         {
             nodoActual = nodoInicial;
