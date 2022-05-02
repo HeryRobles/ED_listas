@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using ListasSimplesCirculares;
+
+Lista listas = new Lista();
+listas.AgregarNodo("cero");
+listas.AgregarNodo("Uno");
+listas.AgregarNodo("Dos");
