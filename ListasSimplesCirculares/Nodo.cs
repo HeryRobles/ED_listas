@@ -8,7 +8,15 @@ namespace ListasSimplesCirculares
 {
     public class Nodo
     {
-        public string dato;
+        public string Valor { get; set; }
+
+        public Nodo EnlaceSiguiente { get; set; }
+
+        public Nodo(string valor = "", Nodo nodoSig = null)
+        {
+            Valor = valor;
+            EnlaceSiguiente = nodoSig;
+        }
 
     }
 }
