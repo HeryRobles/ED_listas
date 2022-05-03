@@ -16,21 +16,20 @@ namespace ListasSimplesCirculares
         public Lista()
         {
             nodoInicial = new Nodo();
-            nodoActual = new Nodo();    
-            nodoInicial.EnlaceSiguiente = nodoInicial;    
+            nodoInicial.Enlace= nodoInicial;    
                      
         }
 
         //Métodos:
         public bool ValidaVacio()
         {
-            return (nodoInicial.EnlaceSiguiente == nodoInicial);
+            return (nodoInicial.Enlace == nodoInicial);
             
         }
 
         public void Vaciar ()
         {
-            nodoInicial.EnlaceSiguiente = nodoInicial;
+            nodoInicial.Enlace = nodoInicial;
             
         }
 
@@ -38,9 +37,9 @@ namespace ListasSimplesCirculares
         {
             string datosLista = "";
             nodoActual = nodoInicial;
-            while (nodoActual.EnlaceSiguiente != null)
+            while (nodoActual.Enlace != nodoInicial)
             {
-                nodoActual = nodoActual.EnlaceSiguiente;
+                nodoActual = nodoActual.Enlace;
                 datosLista += $"{nodoActual.Valor}\n";
             }
             return datosLista;
@@ -48,19 +47,14 @@ namespace ListasSimplesCirculares
 
         public void AgregarNodo(string dato)
         {
-            Nodo nodoNuevo = new Nodo(dato);
-            if (nodoInicial == null)
+            nodoActual = nodoInicial;
+            while (nodoActual.Enlace != nodoInicial)
             {
-                nodoInicial = nodoNuevo;
-                nodoInicial.EnlaceSiguiente = nodoInicial;
-                nodoActual = nodoInicial;
+                nodoActual = nodoActual.Enlace;
             }
-            else
-            {
-                nodoActual.EnlaceSiguiente = nodoNuevo;
-                nodoNuevo.EnlaceSiguiente = nodoInicial;
-                nodoActual = nodoInicial;
-            }
+
+            Nodo nodoNuevo = new Nodo(dato, nodoInicial);
+            nodoActual.Enlace = nodoNuevo;
             
          
         }
