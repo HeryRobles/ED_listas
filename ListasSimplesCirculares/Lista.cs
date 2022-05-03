@@ -11,26 +11,27 @@ namespace ListasSimplesCirculares
         //Declaramos los apuntadores iniciales de tipo Nodo:
         Nodo nodoInicial; //El primer nodo.
         Nodo nodoActual;//El ultimo nodo.
-       
+
         //Creamos el constructor:
         public Lista()
         {
             nodoInicial = new Nodo();
-            nodoInicial.Enlace= nodoInicial;    
-                     
+            nodoActual = new Nodo();
+            nodoInicial.Enlace = nodoInicial;
+
         }
 
         //Métodos:
         public bool ValidaVacio()
         {
             return (nodoInicial.Enlace == nodoInicial);
-            
+
         }
 
-        public void Vaciar ()
+        public void Vaciar()
         {
             nodoInicial.Enlace = nodoInicial;
-            
+
         }
 
         public string RecorrerLista()
@@ -55,43 +56,73 @@ namespace ListasSimplesCirculares
 
             Nodo nodoNuevo = new Nodo(dato, nodoInicial);
             nodoActual.Enlace = nodoNuevo;
-            
-         
+
         }
 
-        //public Nodo Buscar(string dato)
-        //{
-        //    if (ValidaVacio() == false)
-        //    {
-        //        Nodo nodoBusqueda = nodoInicial;
-        //        while (nodoBusqueda != null)
-        //        {
-        //            nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
-        //            if (nodoBusqueda.Valor == dato)
-        //            {
-        //                return nodoBusqueda;
-        //            }
-        //        }
-        //    }
-        //    return null;
-        //}
-        //public void BorrarNodo(string dato)
-        //{
-        //    if (ValidaVacio() == false)
-        //    {
-        //        nodoActual = Buscar(dato);
-        //        if (nodoActual != null)
-        //        {
-        //            Nodo nodoAnterior = BuscarAnterior(dato);
-        //            nodoAnterior.EnlaceSiguiente = nodoActual.EnlaceSiguiente;
-        //            nodoActual.EnlaceSiguiente = nodoAnterior;
-        //        }
-        //    }
-        //}
+        public Nodo Buscar(string dato)
+        {
+            if(ValidaVacio()==false)
+            {
+                Nodo nodoBusqueda = nodoInicial;
+                while (nodoBusqueda.Enlace != nodoInicial)
+                {
+                    nodoBusqueda = nodoBusqueda.Enlace;
+                    if (nodoBusqueda.Valor == dato)
+                    {
+                        return nodoBusqueda;
+                    }
+                }
 
+            }
+            return null;
+        }
 
-
-
-
+        public Nodo BuscarPorIndice(int indice)
+        {
+            int Indice = -1;
+            if(ValidaVacio() == false)
+            {
+                Nodo nodoBusqueda = nodoInicial;
+                while (nodoBusqueda.Enlace != nodoInicial)
+                {
+                    nodoBusqueda = nodoBusqueda.Enlace;
+                    Indice++;
+                    if(Indice == indice)
+                    {
+                        return nodoBusqueda;
+                    }
+                }
+            }
+            return null;
+        }
+        public Nodo BuscarAnterior(string dato)
+        {
+            if (ValidaVacio() == false)
+            {
+                Nodo nodoBusqueda = nodoInicial;
+                while (nodoBusqueda.Enlace != nodoInicial && nodoBusqueda.Enlace.Valor != dato)
+                {
+                    nodoBusqueda = nodoBusqueda.Enlace;
+                    if (nodoBusqueda.Enlace.Valor == dato)
+                    {
+                        return nodoBusqueda;
+                    }
+                }
+            }
+            return null;
+        }
+        public void BorrarNodo(string dato)
+        {
+            if (ValidaVacio() == false)
+            {
+                nodoActual = Buscar(dato);
+                if (nodoActual != null)
+                {
+                    Nodo nodoAnterior = BuscarAnterior(dato);
+                    nodoAnterior.Enlace = nodoActual.Enlace;
+                    nodoActual.Enlace = null;
+                }
+            }
+        }
     }
 }

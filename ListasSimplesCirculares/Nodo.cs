@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ListasSimplesCirculares
 {
-    class Nodo
+    public class Nodo
     {
 
         public string Valor { get; set; }
