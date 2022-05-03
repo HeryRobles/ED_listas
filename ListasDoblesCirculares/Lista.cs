@@ -16,13 +16,50 @@ namespace ListasDoblesCirculares
             primero = null;
             ultimo = null;
         }
-
-        public void AgregarNodo()
+        public bool ValidaVacio()
         {
-            Nodo nuevoNodo = new Nodo();
-            Console.WriteLine("Ingresar el valor del nuevo Nodo: ");
-            nuevoNodo.Valor = int.Parse(Console.ReadLine());
+            return (primero.EnlaceSiguiente == null && primero.EnlaceAtras == null);
+        }
+
+        public void Vaciar()
+        {
+            primero.EnlaceSiguiente = null;
+            ultimo.EnlaceAtras = null;
+        }
+
+        public string RecorrerLista()
+        {
+            string datosLista = "";
+            ultimo = primero;
+            while (ultimo.EnlaceSiguiente != null)
+            {
+                ultimo = ultimo.EnlaceSiguiente;
+                datosLista += $"{ultimo.Valor}\n";
+            }
+            return datosLista;
+        }
+
+        public void AgregarNodo(string dato)
+        {
+            Nodo nuevoNodo = new Nodo(dato);
             if(primero == null)
+            {
+                primero = nuevoNodo;
+                ultimo = nuevoNodo;
+                primero.EnlaceSiguiente = primero;
+                primero.EnlaceAtras = ultimo;
+            }
+            else
+            {
+                ultimo.EnlaceSiguiente = nuevoNodo;
+                nuevoNodo.EnlaceAtras = ultimo;
+                nuevoNodo.EnlaceSiguiente = primero;
+                ultimo = nuevoNodo;
+                primero.EnlaceAtras = ultimo;
+            }
+
+
+
 
         }
     }

@@ -8,12 +8,12 @@ namespace ListasDoblesCirculares
 {
     public class Nodo
     {
-        public int Valor { get; set; }   
+        public string Valor { get; set; }   
         
         public Nodo EnlaceSiguiente { get; set; }
         public Nodo EnlaceAtras { get; set; }
 
-        public Nodo(int valor, Nodo enlaceSiguiente = null, Nodo enlaceAtras = null)
+        public Nodo(string valor= "", Nodo enlaceSiguiente = null, Nodo enlaceAtras = null)
         {
             Valor = valor;
             EnlaceSiguiente = enlaceSiguiente;
