@@ -8,3 +8,4 @@ listas.AgregarNodo("Dos");
 listas.AgregarNodo("Tres");
 listas.AgregarNodo("Cuatro");
 Console.WriteLine(listas.RecorrerLista());
+
