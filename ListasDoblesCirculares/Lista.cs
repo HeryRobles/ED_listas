@@ -8,30 +8,31 @@ namespace ListasDoblesCirculares
 {
     public class Lista
     {
-        Nodo primero = new Nodo();
-        Nodo ultimo = new Nodo();
+        Nodo primero;
+        Nodo ultimo;
 
         public Lista()
         {
-            primero = null;
-            ultimo = null;
+            primero = new Nodo();
+            primero.EnlaceSiguiente = primero;
+            primero.EnlaceAtras = primero;
         }
         public bool ValidaVacio()
         {
-            return (primero.EnlaceSiguiente == null && primero.EnlaceAtras == null);
+            return (primero.EnlaceSiguiente == primero);
         }
 
         public void Vaciar()
         {
-            primero.EnlaceSiguiente = null;
-            ultimo.EnlaceAtras = null;
+            primero.EnlaceSiguiente = primero;
+            ultimo.EnlaceAtras = primero;
         }
 
         public string RecorrerLista()
         {
             string datosLista = "";
             ultimo = primero;
-            while (ultimo.EnlaceSiguiente != null)
+            while (ultimo.EnlaceSiguiente != primero)
             {
                 ultimo = ultimo.EnlaceSiguiente;
                 datosLista += $"{ultimo.Valor}\n";
@@ -41,23 +42,35 @@ namespace ListasDoblesCirculares
 
         public void AgregarNodo(string dato)
         {
-            Nodo nuevoNodo = new Nodo(dato);
-            if (primero == null)
+            ultimo = primero;
+            while (ultimo.EnlaceSiguiente != primero)
             {
-                primero = nuevoNodo;
-                ultimo = nuevoNodo;
-                primero.EnlaceSiguiente = primero;
-                primero.EnlaceAtras = ultimo;
+                ultimo = ultimo.EnlaceSiguiente;
             }
-            else
-            {
-                ultimo.EnlaceSiguiente = nuevoNodo;
-                nuevoNodo.EnlaceAtras = ultimo;
-                nuevoNodo.EnlaceSiguiente = primero;
-                ultimo = nuevoNodo;
-                primero.EnlaceAtras = ultimo;
-            }
+            Nodo nodoNuevo = new Nodo(dato, ultimo, primero);
+            ultimo.EnlaceSiguiente = nodoNuevo;
+            primero.EnlaceAtras = nodoNuevo;
         }
+
+        //public void AgregarNodo(string dato)
+        //{
+        //    Nodo nuevoNodo = new Nodo(dato);
+        //    if (primero == null)
+        //    {
+        //        primero = nuevoNodo;
+        //        ultimo = nuevoNodo;
+        //        primero.EnlaceSiguiente = primero;
+        //        primero.EnlaceAtras = ultimo;
+        //    }
+        //    else
+        //    {
+        //        ultimo.EnlaceSiguiente = nuevoNodo;
+        //        nuevoNodo.EnlaceAtras = ultimo;
+        //        nuevoNodo.EnlaceSiguiente = primero;
+        //        ultimo = nuevoNodo;
+        //        primero.EnlaceAtras = ultimo;
+        //    }
+        //}
 
         public Nodo Buscar(string dato)
         {

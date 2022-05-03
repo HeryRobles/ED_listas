@@ -12,13 +12,13 @@ Console.WriteLine(listas.RecorrerLista());
 Console.WriteLine();
 Console.WriteLine("--------------------");
 
-Console.WriteLine("Buscando Nodo");
-Nodo nodoTres = listas.Buscar("Tres");
-Console.WriteLine(nodoTres.Valor);
+//Console.WriteLine("Buscando Nodo");
+//Nodo nodoTres = listas.Buscar("Tres");
+//Console.WriteLine(nodoTres.Valor);
 
-Console.WriteLine();
-Console.WriteLine("---------------");
+//Console.WriteLine();
+//Console.WriteLine("---------------");
 
-Console.WriteLine("Borrar Nodo");
-listas.EliminarNodo("Tres");
-Console.WriteLine(listas.RecorrerLista());
+//Console.WriteLine("Borrar Nodo");
+//listas.EliminarNodo("Tres");
+//Console.WriteLine(listas.RecorrerLista());
