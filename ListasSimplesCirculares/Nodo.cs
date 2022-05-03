@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace ListasSimplesCirculares
 {
-    public class Nodo
+    class Nodo
     {
+
         public string Valor { get; set; }
 
-        public Nodo EnlaceSiguiente { get; set; }
+        public Nodo Enlace { get; set; }
 
-        public Nodo(string valor = "", Nodo nodoSig = null)
+        public Nodo (string valor = "" , Nodo enlace = null)
         {
             Valor = valor;
-            EnlaceSiguiente = nodoSig;
+            Enlace = enlace;
         }
 
     }

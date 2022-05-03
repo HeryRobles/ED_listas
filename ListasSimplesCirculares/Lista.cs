@@ -9,29 +9,29 @@ namespace ListasSimplesCirculares
     public class Lista
     {
         //Declaramos los apuntadores iniciales de tipo Nodo:
-        Nodo nodoInicial;
-        Nodo nodoActual;
-        Nodo nodoUltimo;
-
+        Nodo nodoInicial; //El primer nodo.
+        Nodo nodoActual;//El ultimo nodo.
+       
         //Creamos el constructor:
         public Lista()
         {
-            this.nodoActual = new Nodo();
-            this.nodoInicial = new Nodo();
-            this.nodoUltimo = new Nodo();   
+            nodoInicial = new Nodo();
+            nodoActual = new Nodo();    
+            nodoInicial.EnlaceSiguiente = nodoInicial;    
+                     
         }
 
         //Métodos:
         public bool ValidaVacio()
         {
-            return (nodoInicial.EnlaceSiguiente == null);
-            return (nodoUltimo == null);
+            return (nodoInicial.EnlaceSiguiente == nodoInicial);
+            
         }
 
         public void Vaciar ()
         {
-            nodoInicial.EnlaceSiguiente = null;
-            nodoUltimo.EnlaceSiguiente = null;
+            nodoInicial.EnlaceSiguiente = nodoInicial;
+            
         }
 
         public string RecorrerLista()
@@ -46,19 +46,23 @@ namespace ListasSimplesCirculares
             return datosLista;
         }
 
-
         public void AgregarNodo(string dato)
         {
-            nodoActual = nodoInicial;
-            while (nodoActual.EnlaceSiguiente != null)
-            {
-                nodoActual = nodoActual.EnlaceSiguiente;
-            }
-
             Nodo nodoNuevo = new Nodo(dato);
-            nodoActual.EnlaceSiguiente = nodoNuevo;
-            nodoNuevo.EnlaceSiguiente = nodoInicial;
-            nodoUltimo = nodoActual;
+            if (nodoInicial == null)
+            {
+                nodoInicial = nodoNuevo;
+                nodoInicial.EnlaceSiguiente = nodoInicial;
+                nodoActual = nodoInicial;
+            }
+            else
+            {
+                nodoActual.EnlaceSiguiente = nodoNuevo;
+                nodoNuevo.EnlaceSiguiente = nodoInicial;
+                nodoActual = nodoInicial;
+            }
+            
+         
         }
 
         //public Nodo Buscar(string dato)
