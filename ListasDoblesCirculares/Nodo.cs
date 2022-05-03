@@ -8,15 +8,16 @@ namespace ListasDoblesCirculares
 {
     public class Nodo
     {
-        public string Valor { get; set; }   
+        public int Valor { get; set; }   
         
-        public Nodo EnlacePrimero { get; set; }
-        public Nodo EnlaceUltimo { get; set; }
+        public Nodo EnlaceSiguiente { get; set; }
+        public Nodo EnlaceAtras { get; set; }
 
-        public Nodo(string valor = "", Nodo enlacePrimero = null)
+        public Nodo(int valor, Nodo enlaceSiguiente = null, Nodo enlaceAtras = null)
         {
             Valor = valor;
-            EnlacePrimero = enlacePrimero;
+            EnlaceSiguiente = enlaceSiguiente;
+            EnlaceAtras = enlaceAtras;
         }
     }
 }
