@@ -77,7 +77,7 @@ namespace ListasDoblesCirculares
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = primero;
-                while (nodoBusqueda != null)
+                while (nodoBusqueda.EnlaceSiguiente != primero)
                 {
                     nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
                     if (nodoBusqueda.Valor == dato)
@@ -95,7 +95,7 @@ namespace ListasDoblesCirculares
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = primero;
-                while (nodoBusqueda.EnlaceSiguiente != null)
+                while (nodoBusqueda.EnlaceSiguiente != primero)
                 {
                     nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
                     Indice++;
@@ -109,33 +109,32 @@ namespace ListasDoblesCirculares
 
         }
 
-        Nodo BuscarAnterior(string dato)
-        {
-            if (ValidaVacio() == false)
-            {
-                Nodo nodoBusqueda = primero;
-                while (nodoBusqueda.EnlaceSiguiente != null && nodoBusqueda.EnlaceSiguiente.Valor != dato)
-                {
-                    nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
-                    if (nodoBusqueda.EnlaceSiguiente.Valor == dato)
-                    {
-                        return nodoBusqueda;
-                    }
-                }
-            }
-            return null;
-        }
+        //Nodo BuscarAnterior(string dato)
+        //{
+        //    if (ValidaVacio() == false)
+        //    {
+        //        Nodo nodoBusqueda = primero;
+        //        while (nodoBusqueda.EnlaceSiguiente != null && nodoBusqueda.EnlaceSiguiente.Valor != dato)
+        //        {
+        //            nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
+        //            if (nodoBusqueda.EnlaceSiguiente.Valor == dato)
+        //            {
+        //                return nodoBusqueda;
+        //            }
+        //        }
+        //    }
+        //    return null;
+        //}
 
         public void EliminarNodo(string dato)
         {
             if (ValidaVacio() == false)
             {
-                primero = Buscar(dato);
+                ultimo = Buscar(dato);
                 if (ultimo != null)
                 {
-                    Nodo nodoAnterior = BuscarAnterior(dato);
-                    nodoAnterior.EnlaceSiguiente = ultimo.EnlaceSiguiente;
-                    ultimo.EnlaceSiguiente = nodoAnterior;
+                    ultimo.EnlaceAtras.EnlaceSiguiente = ultimo.EnlaceSiguiente;
+                    ultimo.EnlaceSiguiente.EnlaceAtras = ultimo.EnlaceAtras;
                 }
             }
         }
