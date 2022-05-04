@@ -43,7 +43,7 @@ namespace ListasDoblesCirculares
         public void AgregarNodo(string dato)
         {
             ultimo = primero;
-            while (ultimo.EnlaceSiguiente != primero)
+            while (ultimo.EnlaceSiguiente == primero)
             {
                 ultimo = ultimo.EnlaceSiguiente;
             }
@@ -95,7 +95,7 @@ namespace ListasDoblesCirculares
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = primero;
-                while (nodoBusqueda.EnlaceSiguiente != primero)
+                while (nodoBusqueda.EnlaceSiguiente != null)
                 {
                     nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
                     Indice++;
