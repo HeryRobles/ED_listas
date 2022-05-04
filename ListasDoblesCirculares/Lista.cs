@@ -14,6 +14,7 @@ namespace ListasDoblesCirculares
         public Lista()
         {
             primero = new Nodo();
+            ultimo = primero;
             primero.EnlaceSiguiente = primero;
             primero.EnlaceAtras = primero;
         }
@@ -138,8 +139,6 @@ namespace ListasDoblesCirculares
                 }
             }
         }
-
-
 
     }
 }
