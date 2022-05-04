@@ -18,8 +18,7 @@ namespace ListasDoblementeLigadas
 
         public bool ValidaVacio()
         {
-            return (nodoInicial.EnlaceAnterior == null);
-            return (nodoInicial.EnlaceSiguiente == null);
+            return (nodoInicial.EnlaceAnterior == null && nodoInicial.EnlaceSiguiente== null);
         }
 
         public void Vaciar()
